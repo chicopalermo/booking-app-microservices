@@ -36,6 +36,10 @@ export class UsersService {
     }
 
     async getUser(getUserDto: GetUserDto) {
-        await this.usersRepository.findOne(getUserDto);
+        return await this.usersRepository.findOne(getUserDto);
+    }
+
+    async getUsers() {
+        return await this.usersRepository.findAll({});
     }
 }
