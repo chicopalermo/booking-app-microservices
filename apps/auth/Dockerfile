@@ -6,16 +6,16 @@ COPY package.json ./
 COPY pnpm-lock.yaml ./
 COPY tsconfig.json ./
 COPY tsconfig.build.json ./
+COPY nest-cli.json ./
 
 RUN npm install -g pnpm
-RUN pnpm install
 
 COPY apps/auth apps/auth
 COPY libs libs
 
-RUN cd apps/auth && pnpm install
+RUN pnpm install -r
 
-RUN pnpm run build
+RUN pnpm run build auth
 
 FROM node:alpine AS production
 

@@ -6,14 +6,16 @@ COPY package.json ./
 COPY pnpm-lock.yaml ./
 COPY tsconfig.json ./
 COPY tsconfig.build.json ./
+COPY nest-cli.json ./
 
 RUN npm install -g pnpm
-RUN pnpm install
 
 COPY apps/reservations apps/reservations
 COPY libs libs
 
-RUN pnpm run build
+RUN pnpm install -r
+
+RUN pnpm run build reservations
 
 FROM node:alpine AS production
 
