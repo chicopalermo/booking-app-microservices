@@ -1,7 +1,7 @@
 steps:
   # Reservations
   - name: 'gcr.io/cloud-builders/docker'
-  - args: [
+    args: [
     'build',
     '-t',
     'southamerica-east1-docker.pkg.dev/booking-app-393814/reservations/production',
@@ -10,13 +10,14 @@ steps:
     '.'
   ]
   - name: 'gcr.io/cloud-builders/docker'
-  - args: [
+    args: [
     'push',
     'southamerica-east1-docker.pkg.dev/booking-app-393814/reservations/production'
   ]
+
   # Auth
   - name: 'gcr.io/cloud-builders/docker'
-  - args: [
+    args: [
     'build',
     '-t',
     'southamerica-east1-docker.pkg.dev/booking-app-393814/auth/production',
@@ -25,13 +26,14 @@ steps:
     '.'
   ]
   - name: 'gcr.io/cloud-builders/docker'
-  - args: [
+    args: [
     'push',
     'southamerica-east1-docker.pkg.dev/booking-app-393814/auth/production'
   ]
+
   # Notifications
   - name: 'gcr.io/cloud-builders/docker'
-  - args: [
+    args: [
     'build',
     '-t',
     'southamerica-east1-docker.pkg.dev/booking-app-393814/notifications/production',
@@ -40,13 +42,14 @@ steps:
     '.'
   ]
   - name: 'gcr.io/cloud-builders/docker'
-  - args: [
+    args: [
     'push',
     'southamerica-east1-docker.pkg.dev/booking-app-393814/notifications/production'
   ]
+
   # Payments
   - name: 'gcr.io/cloud-builders/docker'
-  - args: [
+    args: [
     'build',
     '-t',
     'southamerica-east1-docker.pkg.dev/booking-app-393814/payments/production',
@@ -55,7 +58,7 @@ steps:
     '.'
   ]
   - name: 'gcr.io/cloud-builders/docker'
-  - args: [
+    args: [
     'push',
     'southamerica-east1-docker.pkg.dev/booking-app-393814/payments/production'
   ]
